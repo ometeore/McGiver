@@ -1,7 +1,7 @@
 from random import *
 import json
 import os
-os.chdir("/home/pilt/Documents/entrainement/nawak")
+# os.chdir("/home/pilt/Documents/entrainement/nawak")
 #####################################################################################
 ############################LA GRANDE ECHAPPE DE MC GIVER############################
 #####################################################################################
@@ -28,28 +28,19 @@ class Plateau:
     HEIGHT_CASE = 1
 
 
-# for LIGNE in fp:
-#     for element in LIGNE:
-#         print (element)
-
-
 
 
     def __init__(self):
         fp = open("lab.txt","r")
         self.MATRICE = []
-        for ligne in fp:
+        for numLigne, ligne in enumerate(fp):
             LIGNE = []
-            for hauteur in ligne:
-                coin_bas_gauche = Case(ligne, hauteur, "o")
+            for numColonne, element in enumerate(ligne):
+                coin_bas_gauche = Case(numColonne, numLigne, " " + element + " ")
                 LIGNE.append(coin_bas_gauche)
 
             self.MATRICE.append(LIGNE)
 
-
-        self.write_case(randint(0,self.LIGNE_MAX - 1),randint(0,HAUTEUR_MAX),"1")
-        self.write_case(randint(0,self.LIGNE_MAX - 1),randint(0,HAUTEUR_MAX),"2")
-        self.write_case(randint(0,self.LIGNE_MAX - 1),randint(0,HAUTEUR_MAX),"3")
 
     def __repr__(self):
         i = 0
@@ -67,17 +58,19 @@ class Plateau:
 # retourne 0 si la case est vide 1 si c'est un objet 2 si c'est tinaTurner
     def returnContains(self, x, y):
         element = self.MATRICE[x][y]
-        if element.attribut == "o":
+        if element.attribut == " o ":
             return 0
-        if element.attribut == "1" or element.attribut == "2" or element.attribut =="3":
+        if element.attribut == " 1 " or element.attribut == " 2 " or element.attribut ==" 3 ":
             return 1
-        if element.attribut == "M":
+        if element.attribut == "MMM":
             return 2
+        if element.attribut == " I ":
+            return 3
         else:
             print("?????????????????????????????????????????????????")
 
     def isAllowed(self, x, y):
-        if x<15 and x>=0 and y<15 and y>=0:
+        if x<15 and x>=0 and y<15 and y>=0 and self.returnContains(x,y)!=3:
             return 1
         else:
             return 0 
@@ -90,10 +83,10 @@ class Hero:
         self.x = randint(0,14)
         self.plato = plateau
         self.armes = 0
-        self.plato.write_case(self.x,self.y,"H")
+        self.plato.write_case(self.x,self.y,")H(")
 
     def __repr__(self):
-        return "votre hero se trouve:ligne-> {},hauteur-> {} et il possède {} morceaux de la seringues".format(self.x, self.y, self.armes)
+        return "votre hero se trouve:ligne-> {},colonne-> {} et il possède {} morceaux de la seringues".format(self.x, self.y, self.armes)
 
     def isWin(self):
         if self.armes == 3:
@@ -107,7 +100,7 @@ class Hero:
     def mouvement(self, direction): #direction est entre 0 et 3 
         posXOrigine = self.x
         posYOrigine = self.y
-        self.plato.write_case(posXOrigine, posYOrigine, 'o')
+        self.plato.write_case(posXOrigine, posYOrigine, ' o ')
 #       plateau.testCase(posXY)
         if direction == 0:
             self.y = self.y + 1
@@ -129,7 +122,7 @@ class Hero:
             self.x = posXOrigine
             self.y = posYOrigine
 
-        self.plato.write_case(self.x,self.y,"H")
+        self.plato.write_case(self.x,self.y,")H(")
 
 
 
@@ -138,7 +131,7 @@ class tinaTurner:
     def __init__(self, plateau):
         self.y = 0
         self.x = 0
-        plateau.write_case(self.x, self.y, "M")
+        plateau.write_case(self.x, self.y, "MMM")
 
 
 
@@ -160,13 +153,13 @@ def main ():
         print('***')
         print('')
         if(i=='z'):
-            i = hero.mouvement(0)  
+            i = hero.mouvement(3)  
         if(i=='s'):
-            i = hero.mouvement(1)
-        if(i=='d'):
             i = hero.mouvement(2)
+        if(i=='d'):
+            i = hero.mouvement(0)
         if(i=='q'):
-            i = hero.mouvement(3)
+            i = hero.mouvement(1)
         #i = hero.isWin();
 
 
