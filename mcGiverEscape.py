@@ -138,6 +138,10 @@ class tinaTurner:
 def main ():
 
 
+
+
+
+
     plateau = Plateau()
     hero = Hero(plateau)
     tinyTina = tinaTurner(plateau)
