@@ -10,7 +10,7 @@ class Plateau:
     HAUTEUR_MAX = 15
     WIDTH_CASE = 1
     HEIGHT_CASE = 1
-    LARGEUR_SPRITE = 50
+    LARGEUR_SPRITE = 45
 
 
 
@@ -76,6 +76,9 @@ class Plateau:
         MG = pygame.image.load("ressource/MacGyver.png").convert_alpha()
         MG = pygame.transform.scale(MG, (self.LARGEUR_SPRITE, self.LARGEUR_SPRITE))
 
+        TinyTina = pygame.image.load("ressource/Gardien.png").convert_alpha()
+        TinyTina = pygame.transform.scale(TinyTina, (self.LARGEUR_SPRITE, self.LARGEUR_SPRITE))
+
         
         #On parcourt la liste du niveau
         num_ligne = 0
@@ -99,33 +102,24 @@ class Plateau:
                 if sprite.attribut == 'I':          #m = Mur
                     fenetre.blit(mur, (x,y))
                 if sprite.attribut == '1':        #d = Départ
+                    fenetre.blit(sol, (x,y))
                     fenetre.blit(aiguille, (x,y))
                 if sprite.attribut == '2':        #a = Arrivée
+                    fenetre.blit(sol, (x,y))
                     fenetre.blit(ether, (x,y))
                 if sprite.attribut == '3':
+                    fenetre.blit(sol, (x,y))
                     fenetre.blit(tube, (x,y))
                 if sprite.attribut == 'H':
+                    fenetre.blit(sol, (x,y))
                     fenetre.blit(MG, (x,y))
+                if sprite.attribut == 'M':
+                    fenetre.blit(sol, (x,y))
+                    fenetre.blit(TinyTina, (x,y))
 
 
                 num_case += 1
             num_ligne += 1
-
-
-    def seringue(self):
-        for morceau in ["1","2","3"]:
-            IsObjectPosition= False
-            while not IsObjectPosition:
-                INtX= randint(0,14)
-                INtY= randint(0,14)
-
-                case1 = Case(morceau)
-
-                if self.MATRICE[INtX][INtY].attribut == "o":
-                    self.MATRICE[INtX][INtY] = case1
-                    IsObjectPosition = True
-
-
 
 
     def write_case(self, posX, posY, newAttribut):

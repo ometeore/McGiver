@@ -7,6 +7,7 @@ from classes.case import Case
 
 class Seringue:
     def __init__(self, plateau):
+        self.plato = plateau
         for morceau in ["1","2","3"]:
             IsObjectPosition= False
             while not IsObjectPosition:
@@ -14,8 +15,8 @@ class Seringue:
                 INtY= randint(0,14)
 
                 case1 = Case(morceau)
-                if self.plateau.MATRICE[INtX][INtY].attribut == "o":
-                    self.plateau.MATRICE[INtX][INtY] = case1
+                if self.plato.MATRICE[INtX][INtY].attribut == "o":
+                    self.plato.MATRICE[INtX][INtY] = case1
                     IsObjectPosition = True
                 else:
-                    print(self.plateau.MATRICE[INtX][INtY])
+                    print(self.plato.MATRICE[INtX][INtY])

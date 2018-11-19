@@ -13,21 +13,8 @@ from pygame.locals import *
 ############################LA GRANDE ECHAPPE DE MC GIVER############################
 #####################################################################################
 
-
-
-
-
-
-
-class tinaTurner:
-    def __init__(self, plateau):
-        self.y = 0
-        self.x = 0
-        plateau.write_case(self.x, self.y, "M")
-
-
-
-
+# Les differentes classes utilisé sont dans classes la structure du niveau est dans 
+# lab.txt
 
 #####################################################################################
 ############################           LE MAIN           ############################
@@ -40,6 +27,7 @@ class tinaTurner:
 def main ():
     plateau = Plateau()
     hero = Hero(plateau)
+    seringue = Seringue(plateau)
     # tinyTina = tinaTurner(plateau)
 
     pygame.init()
@@ -48,7 +36,7 @@ def main ():
 
     plateau.afficher(window)
 
-    plateau.seringue()
+    #plateau.seringue()
 
     plateau.afficher(window)
 
@@ -69,15 +57,15 @@ def main ():
                     print("Entrée")
                 if event.key == K_DOWN: 
                     #position_hero = position_hero.move(0,10)
-                    hero.mouvement("bas", window)
+                    hero.mouvement("bas")
                 if event.key == K_UP:
-                    hero.mouvement("haut", window)
+                    hero.mouvement("haut")
                     #position_hero = position_hero.move(0,-10)
                 if event.key == K_RIGHT:
-                    hero.mouvement("droite", window)
+                    hero.mouvement("droite")
                     #position_hero = position_hero.move(10,0)
                 if event.key == K_LEFT:
-                    hero.mouvement("gauche", window)
+                    hero.mouvement("gauche")
                     #position_hero = position_hero.move(-10,0)
         plateau.afficher(window)
         pygame.display.flip()

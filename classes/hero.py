@@ -3,18 +3,29 @@ import pygame.display
 import pygame.image 
 import pygame.event
 from classes.case import Case
+from classes.plateau import Plateau
 
 
 
 class Hero:
-    LARGEUR_SPRITE = 50
 
     def __init__(self, plateau):
         self.y = randint(0,14)
         self.x = randint(0,14)
         self.plato = plateau
         self.armes = 0
-        self.plato.write_case(self.x,self.y,"H")
+
+        IsObjectPosition= False
+        while not IsObjectPosition:
+            case1 = Case("H")
+            if self.plato.MATRICE[self.x][self.y].attribut == "o":
+                self.plato.MATRICE[self.x][self.y] = case1
+                IsObjectPosition = True
+            else:
+                print(self.plato.MATRICE[self.x][self.y])        # IsObjectPosition= False
+
+
+
 
 
     def __repr__(self):
@@ -30,12 +41,9 @@ class Hero:
             return "quit"
 
 
-    def mouvement(self, direction, fenetre): #direction est entre 0 et3
+    def mouvement(self, direction): #direction est entre 0 et3
 
     # changer direction 0 1 2 3  par haut bas....
-        
-        MG = pygame.image.load("ressource/MacGyver.png").convert_alpha()
-        MG = pygame.transform.scale(MG, (self.LARGEUR_SPRITE, self.LARGEUR_SPRITE))
 
         posXOrigine = self.x
         posYOrigine = self.y
