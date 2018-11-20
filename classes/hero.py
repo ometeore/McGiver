@@ -15,14 +15,18 @@ class Hero:
         self.plato = plateau
         self.armes = 0
 
+        colision = 0 
+
         IsObjectPosition= False
         while not IsObjectPosition:
             case1 = Case("H")
             if self.plato.MATRICE[self.x][self.y].attribut == "o":
                 self.plato.MATRICE[self.x][self.y] = case1
                 IsObjectPosition = True
+                print("Le hero a eu {} collisions.".format(colision))
             else:
-                print(self.plato.MATRICE[self.x][self.y])        # IsObjectPosition= False
+                colision = colision + 1  
+                print(colision)       # IsObjectPosition= False
 
 
 
@@ -32,24 +36,13 @@ class Hero:
         return "votre hero se trouve:ligne-> {},colonne-> {} et il possède {} morceaux de la seringues".format(self.x, self.y, self.armes)
     
 
-    def isWin(self):
-        if self.armes == 3:
-            print("WIN >(O.O)<")
-            return "quit"
-        else:
-            print("LOOSER T.T")
-            return "quit"
-
-
-    def mouvement(self, direction): #direction est entre 0 et3
-
-    # changer direction 0 1 2 3  par haut bas....
+    def mouvement(self, direction): 
 
         posXOrigine = self.x
         posYOrigine = self.y
 
         self.plato.write_case(posXOrigine, posYOrigine, 'o')
-#       plateau.testCase(posXY)
+
         if direction == "droite":
             self.y = self.y + 1
         if direction == "gauche":
@@ -60,14 +53,26 @@ class Hero:
             self.x = self.x - 1
 
         if self.plato.isAllowed(self.x,self.y):
-            if self.plato.returnContains(self.x,self.y) == 0:
+            if self.plato.returnContains(self.x,self.y) == "vide":
                 pass
-            if self.plato.returnContains(self.x,self.y) == 1:
+            if self.plato.returnContains(self.x,self.y) == "seringue":
                 self.armes = self.armes + 1
-            if self.plato.returnContains(self.x,self.y) == 2:
-                return self.isWin()
+            if self.plato.returnContains(self.x,self.y) == "Tina":
+                if self.armes == 3:
+                    pass
+                else:
+                    #Signaler la defaite
+                    # return False
+                    self.plato.victory(False)
+            if self.plato.returnContains(self.x,self.y) == "butin":
+                #condition de victoire
+                # return False
+                self.plato.victory(True)
+                pass
+
         else:
             self.x = posXOrigine
             self.y = posYOrigine
 
         self.plato.write_case(self.x,self.y,"H")
+        # return True
