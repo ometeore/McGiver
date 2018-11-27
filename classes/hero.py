@@ -1,4 +1,4 @@
-from random import *
+from random import randint
 import pygame.display
 import pygame.image 
 import pygame.event
@@ -10,8 +10,6 @@ from classes.plateau import Plateau
 class Hero:
 
     def __init__(self, plateau):
-        self.y = randint(0,14)
-        self.x = randint(0,14)
         self.plato = plateau
         self.armes = 0
 
@@ -20,23 +18,22 @@ class Hero:
         IsObjectPosition= False
         while not IsObjectPosition:
             case1 = Case("H")
+            self.y = randint(0,14)
+            self.x = randint(0,14)
             if self.plato.MATRICE[self.x][self.y].attribut == "o":
                 self.plato.MATRICE[self.x][self.y] = case1
                 IsObjectPosition = True
                 print("Le hero a eu {} collisions.".format(colision))
             else:
+                print("boom")
                 colision = colision + 1  
-                print(colision)       # IsObjectPosition= False
-
-
-
-
 
     def __repr__(self):
         return "votre hero se trouve:ligne-> {},colonne-> {} et il possède {} morceaux de la seringues".format(self.x, self.y, self.armes)
     
 
     def mouvement(self, direction): 
+        """ description de la fonction """
 
         posXOrigine = self.x
         posYOrigine = self.y
@@ -58,16 +55,12 @@ class Hero:
             if self.plato.returnContains(self.x,self.y) == "seringue":
                 self.armes = self.armes + 1
             if self.plato.returnContains(self.x,self.y) == "Tina":
-                if self.armes == 3:
-                    pass
-                else:
-                    #Signaler la defaite
-                    # return False
+                if self.armes != 3:
                     self.plato.victory(False)
+                    return False
             if self.plato.returnContains(self.x,self.y) == "butin":
-                #condition de victoire
-                # return False
                 self.plato.victory(True)
+                return False
                 pass
 
         else:
@@ -75,4 +68,5 @@ class Hero:
             self.y = posYOrigine
 
         self.plato.write_case(self.x,self.y,"H")
-        # return True
+        return True
+

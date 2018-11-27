@@ -1,20 +1,22 @@
-from random import *
 import pygame.display
 import pygame.image 
 import pygame.event
-from classes.case import Case
+import pygame.font
 
+from classes.case import Case
+from pygame.locals import *
 
 class Plateau:
     LIGNE_MAX = 15
     HAUTEUR_MAX = 15
     WIDTH_CASE = 1
     HEIGHT_CASE = 1
-    LARGEUR_SPRITE = 45
+    LARGEUR_SPRITE = 40
 
 
 
-    def __init__(self):
+    def __init__(self, fenetre):
+        self.fenetre = fenetre
         fp = open("lab.txt","r")
         self.MATRICE = []
         for numLigne, ligne in enumerate(fp):
@@ -41,7 +43,7 @@ class Plateau:
 
 
 
-    def afficher(self, fenetre):
+    def afficher(self):
 
         mur = pygame.image.load("ressource/caseRouge.png").convert()
         mur = pygame.transform.scale(mur, (self.LARGEUR_SPRITE, self.LARGEUR_SPRITE))
@@ -52,11 +54,13 @@ class Plateau:
         aiguille = pygame.image.load("ressource/aiguille.png").convert_alpha()
         aiguille = pygame.transform.scale(aiguille, (self.LARGEUR_SPRITE, self.LARGEUR_SPRITE))
 
-        ether = pygame.image.load("ressource/ether.png").convert_alpha()
+        ether = pygame.image.load("ressource/ether.png").convert()
         ether = pygame.transform.scale(ether, (self.LARGEUR_SPRITE, self.LARGEUR_SPRITE))
+        ether.set_colorkey((0, 0, 0))
 
-        tube = pygame.image.load("ressource/tube_plastique.png").convert_alpha()
+        tube = pygame.image.load("ressource/tube_plastique.png").convert()
         tube = pygame.transform.scale(tube, (self.LARGEUR_SPRITE, self.LARGEUR_SPRITE))
+        tube.set_colorkey((255, 255, 255))
 
         MG = pygame.image.load("ressource/MacGyver.png").convert_alpha()
         MG = pygame.transform.scale(MG, (self.LARGEUR_SPRITE, self.LARGEUR_SPRITE))
@@ -88,30 +92,30 @@ class Plateau:
                 #print("X"+sprite.attribut+"X")
           
                 if sprite.attribut == 'o':          #m = Mur
-                    fenetre.blit(sol, (x,y))
+                    self.fenetre.blit(sol, (x,y))
                 if sprite.attribut == 'I':          #m = Mur
-                    fenetre.blit(mur, (x,y))
+                    self.fenetre.blit(mur, (x,y))
                 if sprite.attribut == '1':        #d = Départ
-                    fenetre.blit(sol, (x,y))
-                    fenetre.blit(aiguille, (x,y))
+                    self.fenetre.blit(sol, (x,y))
+                    self.fenetre.blit(aiguille, (x,y))
                 if sprite.attribut == '2':        #a = Arrivée
-                    fenetre.blit(sol, (x,y))
-                    fenetre.blit(ether, (x,y))
+                    self.fenetre.blit(sol, (x,y))
+                    self.fenetre.blit(ether, (x,y))
                 if sprite.attribut == '3':
-                    fenetre.blit(sol, (x,y))
-                    fenetre.blit(tube, (x,y))
+                    self.fenetre.blit(sol, (x,y))
+                    self.fenetre.blit(tube, (x,y))
                 if sprite.attribut == 'H':
-                    fenetre.blit(sol, (x,y))
-                    fenetre.blit(MG, (x,y))
+                    self.fenetre.blit(sol, (x,y))
+                    self.fenetre.blit(MG, (x,y))
                 if sprite.attribut == 'M':
-                    fenetre.blit(sol, (x,y))
-                    fenetre.blit(TinyTina, (x,y))
+                    self.fenetre.blit(sol, (x,y))
+                    self.fenetre.blit(TinyTina, (x,y))
                 if sprite.attribut == 'B':
-                    fenetre.blit(sol, (x,y))
-                    fenetre.blit(butin, (x,y))
+                    self.fenetre.blit(sol, (x,y))
+                    self.fenetre.blit(butin, (x,y))
                 if sprite.attribut == 'd':
-                    fenetre.blit(sol, (x,y))
-                    fenetre.blit(diable, (x,y))
+                    self.fenetre.blit(sol, (x,y))
+                    self.fenetre.blit(diable, (x,y))
 
                 num_case += 1
             num_ligne += 1
@@ -146,7 +150,15 @@ class Plateau:
             return 0 
 
     def victory (self, victoire):
+        font = pygame.font.SysFont("comicsansms",35)
+        font_espace = pygame.font.SysFont("comicsansms",18)
+        font_victoire = font.render("victoire", True, (0, 255, 0))
+        font_defaite = font.render("defaite", True, (255, 0, 0))
+        space = font_espace.render("Appuyez sur espace pour revenir au menu.", True, (0, 0, 255))
         if victoire == True:
+            self.fenetre.blit(font_victoire,(630,250))
+            self.fenetre.blit(space,(610,350))
+            pygame.display.flip()
             num_ligne = 0
             for ligne in self.MATRICE:
                 #On parcourt les listes de lignes
@@ -158,6 +170,9 @@ class Plateau:
                     if sprite.attribut == 'o':          #m = Mur
                         sprite.attribut = 'B'
         if victoire == False:
+            self.fenetre.blit(font_defaite,(640,250))
+            self.fenetre.blit(space,(610,350))
+            pygame.display.flip()
             num_ligne = 0
             for ligne in self.MATRICE:
                 #On parcourt les listes de lignes
@@ -168,4 +183,10 @@ class Plateau:
                     y = num_ligne * self.LARGEUR_SPRITE
                     if sprite.attribut == 'o':          #m = Mur
                         sprite.attribut = 'd'
+        continuerVictoire = True
 
+        while continuerVictoire:
+            for event in pygame.event.get():
+                if event.type == KEYDOWN:   
+                    if event.key == K_SPACE:
+                        continuerVictoire = False

@@ -1,7 +1,5 @@
-from random import *
-import pygame.display
+from random import randint
 import pygame.image 
-import pygame.event
 from classes.case import Case
 
 
@@ -18,5 +16,3 @@ class Seringue:
                 if self.plato.MATRICE[INtX][INtY].attribut == "o":
                     self.plato.MATRICE[INtX][INtY] = case1
                     IsObjectPosition = True
-                else:
-                    print(self.plato.MATRICE[INtX][INtY])

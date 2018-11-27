@@ -1,0 +1,237 @@
+************* Module classes.case
+case.py:2:32: C0326: No space allowed before bracket
+    def __init__(self, attribut ):
+                                ^ (bad-whitespace)
+case.py:7:0: C0304: Final newline missing (missing-final-newline)
+case.py:1:0: C0111: Missing module docstring (missing-docstring)
+case.py:1:0: C0111: Missing class docstring (missing-docstring)
+case.py:1:0: R0903: Too few public methods (1/2) (too-few-public-methods)
+************* Module classes.hero
+hero.py:3:19: C0303: Trailing whitespace (trailing-whitespace)
+hero.py:13:26: C0326: Exactly one space required after comma
+        self.y = randint(0,14)
+                          ^ (bad-whitespace)
+hero.py:14:26: C0326: Exactly one space required after comma
+        self.x = randint(0,14)
+                          ^ (bad-whitespace)
+hero.py:18:20: C0303: Trailing whitespace (trailing-whitespace)
+hero.py:20:24: C0326: Exactly one space required before assignment
+        IsObjectPosition= False
+                        ^ (bad-whitespace)
+hero.py:28:39: C0303: Trailing whitespace (trailing-whitespace)
+hero.py:31:0: C0301: Line too long (138/100) (line-too-long)
+hero.py:32:0: C0303: Trailing whitespace (trailing-whitespace)
+hero.py:34:35: C0303: Trailing whitespace (trailing-whitespace)
+hero.py:50:38: C0326: Exactly one space required after comma
+        if self.plato.isAllowed(self.x,self.y):
+                                      ^ (bad-whitespace)
+hero.py:51:47: C0326: Exactly one space required after comma
+            if self.plato.returnContains(self.x,self.y) == "vide":
+                                               ^ (bad-whitespace)
+hero.py:53:47: C0326: Exactly one space required after comma
+            if self.plato.returnContains(self.x,self.y) == "seringue":
+                                               ^ (bad-whitespace)
+hero.py:55:47: C0326: Exactly one space required after comma
+            if self.plato.returnContains(self.x,self.y) == "Tina":
+                                               ^ (bad-whitespace)
+hero.py:59:47: C0326: Exactly one space required after comma
+            if self.plato.returnContains(self.x,self.y) == "butin":
+                                               ^ (bad-whitespace)
+hero.py:68:36: C0326: Exactly one space required after comma
+        self.plato.write_case(self.x,self.y,"H")
+                                    ^ (bad-whitespace)
+hero.py:68:43: C0326: Exactly one space required after comma
+        self.plato.write_case(self.x,self.y,"H")
+                                           ^ (bad-whitespace)
+hero.py:69:0: C0304: Final newline missing (missing-final-newline)
+hero.py:1:0: C0111: Missing module docstring (missing-docstring)
+hero.py:13:8: C0103: Attribute name "y" doesn't conform to snake_case naming style (invalid-name)
+hero.py:14:8: C0103: Attribute name "x" doesn't conform to snake_case naming style (invalid-name)
+hero.py:10:0: C0111: Missing class docstring (missing-docstring)
+hero.py:20:8: C0103: Variable name "IsObjectPosition" doesn't conform to snake_case naming style (invalid-name)
+hero.py:25:16: C0103: Variable name "IsObjectPosition" doesn't conform to snake_case naming style (invalid-name)
+hero.py:34:4: C0111: Missing method docstring (missing-docstring)
+hero.py:36:8: C0103: Variable name "posXOrigine" doesn't conform to snake_case naming style (invalid-name)
+hero.py:37:8: C0103: Variable name "posYOrigine" doesn't conform to snake_case naming style (invalid-name)
+hero.py:62:16: W0101: Unreachable code (unreachable)
+hero.py:62:16: W0107: Unnecessary pass statement (unnecessary-pass)
+hero.py:2:0: W0611: Unused import pygame.display (unused-import)
+hero.py:3:0: W0611: Unused import pygame.image (unused-import)
+hero.py:4:0: W0611: Unused import pygame.event (unused-import)
+hero.py:6:0: W0611: Unused Plateau imported from classes.plateau (unused-import)
+************* Module classes.plateau
+plateau.py:2:19: C0303: Trailing whitespace (trailing-whitespace)
+plateau.py:17:27: C0326: Exactly one space required after comma
+        fp = open("lab.txt","r")
+                           ^ (bad-whitespace)
+plateau.py:29:9: C0326: Exactly one space required before assignment
+        I= 0
+         ^ (bad-whitespace)
+plateau.py:50:0: C0303: Trailing whitespace (trailing-whitespace)
+plateau.py:71:0: C0303: Trailing whitespace (trailing-whitespace)
+plateau.py:81:0: C0303: Trailing whitespace (trailing-whitespace)
+plateau.py:88:0: C0303: Trailing whitespace (trailing-whitespace)
+plateau.py:90:40: C0326: Exactly one space required after comma
+                    fenetre.blit(sol, (x,y))
+                                        ^ (bad-whitespace)
+plateau.py:92:40: C0326: Exactly one space required after comma
+                    fenetre.blit(mur, (x,y))
+                                        ^ (bad-whitespace)
+plateau.py:94:40: C0326: Exactly one space required after comma
+                    fenetre.blit(sol, (x,y))
+                                        ^ (bad-whitespace)
+plateau.py:95:45: C0326: Exactly one space required after comma
+                    fenetre.blit(aiguille, (x,y))
+                                             ^ (bad-whitespace)
+plateau.py:97:40: C0326: Exactly one space required after comma
+                    fenetre.blit(sol, (x,y))
+                                        ^ (bad-whitespace)
+plateau.py:98:42: C0326: Exactly one space required after comma
+                    fenetre.blit(ether, (x,y))
+                                          ^ (bad-whitespace)
+plateau.py:100:40: C0326: Exactly one space required after comma
+                    fenetre.blit(sol, (x,y))
+                                        ^ (bad-whitespace)
+plateau.py:101:41: C0326: Exactly one space required after comma
+                    fenetre.blit(tube, (x,y))
+                                         ^ (bad-whitespace)
+plateau.py:103:40: C0326: Exactly one space required after comma
+                    fenetre.blit(sol, (x,y))
+                                        ^ (bad-whitespace)
+plateau.py:104:39: C0326: Exactly one space required after comma
+                    fenetre.blit(MG, (x,y))
+                                       ^ (bad-whitespace)
+plateau.py:106:40: C0326: Exactly one space required after comma
+                    fenetre.blit(sol, (x,y))
+                                        ^ (bad-whitespace)
+plateau.py:107:45: C0326: Exactly one space required after comma
+                    fenetre.blit(TinyTina, (x,y))
+                                             ^ (bad-whitespace)
+plateau.py:109:40: C0326: Exactly one space required after comma
+                    fenetre.blit(sol, (x,y))
+                                        ^ (bad-whitespace)
+plateau.py:110:42: C0326: Exactly one space required after comma
+                    fenetre.blit(butin, (x,y))
+                                          ^ (bad-whitespace)
+plateau.py:112:40: C0326: Exactly one space required after comma
+                    fenetre.blit(sol, (x,y))
+                                        ^ (bad-whitespace)
+plateau.py:113:43: C0326: Exactly one space required after comma
+                    fenetre.blit(diable, (x,y))
+                                           ^ (bad-whitespace)
+plateau.py:120:55: C0303: Trailing whitespace (trailing-whitespace)
+plateau.py:128:82: C0326: Exactly one space required after comparison
+        if element.attribut == "1" or element.attribut == "2" or element.attribut =="3":
+                                                                                  ^^ (bad-whitespace)
+plateau.py:142:0: C0301: Line too long (118/100) (line-too-long)
+plateau.py:142:12: C0326: Exactly one space required around comparison
+        if x<15 and x>=0 and y<15 and y>=0 and self.returnContains(x,y)!="mur" and self.returnContains(x,y)!="diable":
+            ^ (bad-whitespace)
+plateau.py:142:21: C0326: Exactly one space required around comparison
+        if x<15 and x>=0 and y<15 and y>=0 and self.returnContains(x,y)!="mur" and self.returnContains(x,y)!="diable":
+                     ^^ (bad-whitespace)
+plateau.py:142:30: C0326: Exactly one space required around comparison
+        if x<15 and x>=0 and y<15 and y>=0 and self.returnContains(x,y)!="mur" and self.returnContains(x,y)!="diable":
+                              ^ (bad-whitespace)
+plateau.py:142:39: C0326: Exactly one space required around comparison
+        if x<15 and x>=0 and y<15 and y>=0 and self.returnContains(x,y)!="mur" and self.returnContains(x,y)!="diable":
+                                       ^^ (bad-whitespace)
+plateau.py:142:68: C0326: Exactly one space required after comma
+        if x<15 and x>=0 and y<15 and y>=0 and self.returnContains(x,y)!="mur" and self.returnContains(x,y)!="diable":
+                                                                    ^ (bad-whitespace)
+plateau.py:142:71: C0326: Exactly one space required around comparison
+        if x<15 and x>=0 and y<15 and y>=0 and self.returnContains(x,y)!="mur" and self.returnContains(x,y)!="diable":
+                                                                       ^^ (bad-whitespace)
+plateau.py:142:104: C0326: Exactly one space required after comma
+        if x<15 and x>=0 and y<15 and y>=0 and self.returnContains(x,y)!="mur" and self.returnContains(x,y)!="diable":
+                                                                                                        ^ (bad-whitespace)
+plateau.py:142:107: C0326: Exactly one space required around comparison
+        if x<15 and x>=0 and y<15 and y>=0 and self.returnContains(x,y)!="mur" and self.returnContains(x,y)!="diable":
+                                                                                                           ^^ (bad-whitespace)
+plateau.py:145:20: C0303: Trailing whitespace (trailing-whitespace)
+plateau.py:147:16: C0326: No space allowed before bracket
+    def victory (self, victoire):
+                ^ (bad-whitespace)
+plateau.py:170:0: C0305: Trailing newlines (trailing-newlines)
+plateau.py:1:0: C0111: Missing module docstring (missing-docstring)
+plateau.py:18:8: C0103: Attribute name "MATRICE" doesn't conform to snake_case naming style (invalid-name)
+plateau.py:7:0: C0111: Missing class docstring (missing-docstring)
+plateau.py:17:8: C0103: Variable name "fp" doesn't conform to snake_case naming style (invalid-name)
+plateau.py:19:12: C0103: Variable name "numLigne" doesn't conform to snake_case naming style (invalid-name)
+plateau.py:20:12: C0103: Variable name "LIGNE" doesn't conform to snake_case naming style (invalid-name)
+plateau.py:21:16: C0103: Variable name "numColonne" doesn't conform to snake_case naming style (invalid-name)
+plateau.py:19:12: W0612: Unused variable 'numLigne' (unused-variable)
+plateau.py:21:16: W0612: Unused variable 'numColonne' (unused-variable)
+plateau.py:29:8: C0103: Variable name "I" doesn't conform to snake_case naming style (invalid-name)
+plateau.py:31:12: C0103: Variable name "LIGNE" doesn't conform to snake_case naming style (invalid-name)
+plateau.py:29:8: W0612: Unused variable 'I' (unused-variable)
+plateau.py:43:4: C0111: Missing method docstring (missing-docstring)
+plateau.py:43:4: R0914: Too many local variables (18/15) (too-many-locals)
+plateau.py:60:8: C0103: Variable name "MG" doesn't conform to snake_case naming style (invalid-name)
+plateau.py:61:8: C0103: Variable name "MG" doesn't conform to snake_case naming style (invalid-name)
+plateau.py:63:8: C0103: Variable name "TinyTina" doesn't conform to snake_case naming style (invalid-name)
+plateau.py:64:8: C0103: Variable name "TinyTina" doesn't conform to snake_case naming style (invalid-name)
+plateau.py:79:16: C0103: Variable name "x" doesn't conform to snake_case naming style (invalid-name)
+plateau.py:80:16: C0103: Variable name "y" doesn't conform to snake_case naming style (invalid-name)
+plateau.py:119:4: C0103: Argument name "posX" doesn't conform to snake_case naming style (invalid-name)
+plateau.py:119:4: C0103: Argument name "posY" doesn't conform to snake_case naming style (invalid-name)
+plateau.py:119:4: C0103: Argument name "newAttribut" doesn't conform to snake_case naming style (invalid-name)
+plateau.py:119:4: C0111: Missing method docstring (missing-docstring)
+plateau.py:124:4: C0103: Method name "returnContains" doesn't conform to snake_case naming style (invalid-name)
+plateau.py:124:4: C0103: Argument name "x" doesn't conform to snake_case naming style (invalid-name)
+plateau.py:124:4: C0103: Argument name "y" doesn't conform to snake_case naming style (invalid-name)
+plateau.py:124:4: C0111: Missing method docstring (missing-docstring)
+plateau.py:136:8: R1705: Unnecessary "else" after "return" (no-else-return)
+plateau.py:124:4: R1710: Either all return statements in a function should return an expression, or none of them should. (inconsistent-return-statements)
+plateau.py:141:4: C0103: Method name "isAllowed" doesn't conform to snake_case naming style (invalid-name)
+plateau.py:141:4: C0103: Argument name "x" doesn't conform to snake_case naming style (invalid-name)
+plateau.py:141:4: C0103: Argument name "y" doesn't conform to snake_case naming style (invalid-name)
+plateau.py:141:4: C0111: Missing method docstring (missing-docstring)
+plateau.py:142:8: R1705: Unnecessary "else" after "return" (no-else-return)
+plateau.py:142:11: R0916: Too many boolean expressions in if statement (6/5) (too-many-boolean-expressions)
+plateau.py:142:11: R1716: Simplify chained comparison between the operands (chained-comparison)
+plateau.py:147:4: C0111: Missing method docstring (missing-docstring)
+plateau.py:148:11: C0121: Comparison to True should be just 'expr' or 'expr is True' (singleton-comparison)
+plateau.py:155:20: C0103: Variable name "x" doesn't conform to snake_case naming style (invalid-name)
+plateau.py:156:20: C0103: Variable name "y" doesn't conform to snake_case naming style (invalid-name)
+plateau.py:159:11: C0121: Comparison to False should be 'not expr' or 'expr is False' (singleton-comparison)
+plateau.py:166:20: C0103: Variable name "x" doesn't conform to snake_case naming style (invalid-name)
+plateau.py:167:20: C0103: Variable name "y" doesn't conform to snake_case naming style (invalid-name)
+plateau.py:155:20: W0612: Unused variable 'x' (unused-variable)
+plateau.py:156:20: W0612: Unused variable 'y' (unused-variable)
+************* Module classes.seringue
+seringue.py:2:19: C0303: Trailing whitespace (trailing-whitespace)
+seringue.py:9:27: C0326: Exactly one space required after comma
+        for morceau in ["1","2","3"]:
+                           ^ (bad-whitespace)
+seringue.py:9:31: C0326: Exactly one space required after comma
+        for morceau in ["1","2","3"]:
+                               ^ (bad-whitespace)
+seringue.py:10:28: C0326: Exactly one space required before assignment
+            IsObjectPosition= False
+                            ^ (bad-whitespace)
+seringue.py:12:20: C0326: Exactly one space required before assignment
+                INtX= randint(0,14)
+                    ^ (bad-whitespace)
+seringue.py:12:31: C0326: Exactly one space required after comma
+                INtX= randint(0,14)
+                               ^ (bad-whitespace)
+seringue.py:13:20: C0326: Exactly one space required before assignment
+                INtY= randint(0,14)
+                    ^ (bad-whitespace)
+seringue.py:13:31: C0326: Exactly one space required after comma
+                INtY= randint(0,14)
+                               ^ (bad-whitespace)
+seringue.py:18:0: C0304: Final newline missing (missing-final-newline)
+seringue.py:1:0: C0111: Missing module docstring (missing-docstring)
+seringue.py:6:0: C0111: Missing class docstring (missing-docstring)
+seringue.py:10:12: C0103: Variable name "IsObjectPosition" doesn't conform to snake_case naming style (invalid-name)
+seringue.py:12:16: C0103: Variable name "INtX" doesn't conform to snake_case naming style (invalid-name)
+seringue.py:13:16: C0103: Variable name "INtY" doesn't conform to snake_case naming style (invalid-name)
+seringue.py:18:20: C0103: Variable name "IsObjectPosition" doesn't conform to snake_case naming style (invalid-name)
+seringue.py:6:0: R0903: Too few public methods (0/2) (too-few-public-methods)
+seringue.py:2:0: W0611: Unused import pygame.image (unused-import)
+
+-----------------------------------
+Your code has been rated at 2.83/10
+
