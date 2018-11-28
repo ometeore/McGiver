@@ -1,18 +1,19 @@
+""" Dispositionne sur le plateau les 3 morceaux de seringues """
 from random import randint
-import pygame.image 
 from classes.case import Case
 
 
 class Seringue:
+    """ positionne les morceaux de seringues """
     def __init__(self, plateau):
         self.plato = plateau
-        for morceau in ["1","2","3"]:
-            IsObjectPosition= False
-            while not IsObjectPosition:
-                INtX= randint(0,14)
-                INtY= randint(0,14)
+        for morceau in ["1", "2", "3"]:
+            objet_en_position = False
+            while not objet_en_position:
+                position_x = randint(0, 14)
+                position_y = randint(0, 14)
 
                 case1 = Case(morceau)
-                if self.plato.MATRICE[INtX][INtY].attribut == "o":
-                    self.plato.MATRICE[INtX][INtY] = case1
-                    IsObjectPosition = True
+                if self.plato.matrice[position_x][position_y].attribut == "o":
+                    self.plato.matrice[position_x][position_y] = case1
+                    objet_en_position = True

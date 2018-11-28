@@ -1,5 +1,7 @@
+""" Oh vie heureuse des bourgeois qu'avril bourgeonne """
+
 class Case:
-    def __init__(self, attribut ):
+    def __init__(self, attribut):
 
         self.attribut = attribut
 
