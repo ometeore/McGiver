@@ -1,6 +1,20 @@
-Le main et donc le fichier a appeler par python3 est mcGiverEscape.py dispo
-a la racine.
-On a besoin de Pygame pour le lancer.
-Le code est disponnible autrement sous gitHub:
+Ce programme à été fait dans le cadre d'un projet openClassroom par PILT.
+Il est versionné sous gitHub: https://github.com/ometeore/McGiver.git
 
-https://github.com/ometeore/McGiver.git
+*** pour installer le jeu il faut en installer python3 et les dépendances (je recommande l'utilisation d'un environnement virtuel) ***
+To run this project on your computer, you must install python3 and pygame (i suggest to use a venv).
+pip install -r requirement.txt
+source venv/bin/activate
+
+then to run the game:
+python3 mc_giver_escape.py
+
+
+Le jeu:
+Guidez mac gyver jusqu'au trésor en ramassant de l'éther un tube et une aiguille pour vous fabriquez une seringue et vaincre le gardien.
+
+the game:
+Control mc giver until he find the treasure and find objects to build you a weapon to defeat the guardian.
+
+Bonne chance.
+Have fun.
