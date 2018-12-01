@@ -14,7 +14,6 @@ from classes.seringue import Seringue
 #####################################################################################
 
 
-
 def main():
     """ Ceci est le main"""
     pygame.init()
@@ -24,7 +23,6 @@ def main():
     while continuer_acceuil:
 
         acceuil = pygame.image.load("ressource/MacAcceuil.jpeg").convert()
-        acceuil = pygame.transform.scale(acceuil, (1000, 600))
 
         window.blit(acceuil, (0, 0))
         font_titre = pygame.font.SysFont("comicsansms", 55)
@@ -56,7 +54,6 @@ def main():
                     plateau.afficher(hero)
                     print("premier affichage plateau")
                     pygame.display.flip()
-                    pygame.key.set_repeat(400, 30)
 
                     continuer_jeu = True
 

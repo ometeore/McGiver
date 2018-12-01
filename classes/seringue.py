@@ -13,7 +13,7 @@ class Seringue:
                 position_x = randint(0, 14)
                 position_y = randint(0, 14)
 
-                case1 = Case(morceau)
+                case = Case(morceau)
                 if self.plato.matrice[position_x][position_y].attribut == "o":
-                    self.plato.matrice[position_x][position_y] = case1
+                    self.plato.matrice[position_x][position_y] = case
                     objet_en_position = True

@@ -26,7 +26,6 @@ class Hero:
 
     def mouvement(self, direction):
         """fait appel a des fonctions du plateau pour savoir si le mvment est possible """
-         
         position_x_origine = self.position_x
         position_y_origine = self.position_y
 

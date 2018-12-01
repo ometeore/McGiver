@@ -7,6 +7,8 @@ import pygame.font
 from classes.case import Case
 from pygame.locals import KEYDOWN, K_SPACE
 
+
+
 class Plateau:
     """ la classe plateau """
     LIGNE_MAX = 15
@@ -20,6 +22,35 @@ class Plateau:
         self.fenetre = fenetre
         fichier_niveau = open("lab.txt", "r")
         self.matrice = []
+
+        self.mur = pygame.image.load("ressource/caseRouge.png").convert()
+        self.mur = pygame.transform.scale(self.mur, (self.LARGEUR_SPRITE, self.LARGEUR_SPRITE))
+
+        self.sol = pygame.image.load("ressource/sol.png").convert()
+        self.sol = pygame.transform.scale(self.sol, (self.LARGEUR_SPRITE, self.LARGEUR_SPRITE))
+
+        self.aiguille = pygame.image.load("ressource/aiguille.png").convert_alpha()
+        self.aiguille = pygame.transform.scale(self.aiguille, (self.LARGEUR_SPRITE, self.LARGEUR_SPRITE))
+
+        self.ether = pygame.image.load("ressource/ether.png").convert()
+        self.ether = pygame.transform.scale(self.ether, (self.LARGEUR_SPRITE, self.LARGEUR_SPRITE))
+
+        self.tube = pygame.image.load("ressource/tube_plastique.png").convert()
+        self.tube = pygame.transform.scale(self.tube, (self.LARGEUR_SPRITE, self.LARGEUR_SPRITE))
+        self.tube.set_colorkey((255, 255, 255))
+
+        self.mac_giver = pygame.image.load("ressource/MacGyver.png").convert_alpha()
+        self.mac_giver = pygame.transform.scale(self.mac_giver, (self.LARGEUR_SPRITE, self.LARGEUR_SPRITE))
+
+        self.tiny_tina = pygame.image.load("ressource/Gardien.png").convert_alpha()
+        self.tiny_tina = pygame.transform.scale(self.tiny_tina, (self.LARGEUR_SPRITE, self.LARGEUR_SPRITE))
+
+        self.butin = pygame.image.load("ressource/butin.png").convert_alpha()
+        self.butin = pygame.transform.scale(self.butin, (self.LARGEUR_SPRITE, self.LARGEUR_SPRITE))
+
+        self.diable = pygame.image.load("ressource/diable.png").convert_alpha()
+        self.diable = pygame.transform.scale(self.diable, (self.LARGEUR_SPRITE, self.LARGEUR_SPRITE))
+       
         for num_ligne, ligne_temp in enumerate(fichier_niveau):
             ligne = []
             for num_colonne, element in enumerate(ligne_temp):
@@ -41,33 +72,7 @@ class Plateau:
         """ Affichage des éléments par pygame en récupérant les positions dans matrice """
         self.fenetre.fill((255, 255, 255))
         
-        mur = pygame.image.load("ressource/caseRouge.png").convert()
-        mur = pygame.transform.scale(mur, (self.LARGEUR_SPRITE, self.LARGEUR_SPRITE))
 
-        sol = pygame.image.load("ressource/sol.png").convert()
-        sol = pygame.transform.scale(sol, (self.LARGEUR_SPRITE, self.LARGEUR_SPRITE))
-
-        aiguille = pygame.image.load("ressource/aiguille.png").convert_alpha()
-        aiguille = pygame.transform.scale(aiguille, (self.LARGEUR_SPRITE, self.LARGEUR_SPRITE))
-
-        ether = pygame.image.load("ressource/ether.png").convert()
-        ether = pygame.transform.scale(ether, (self.LARGEUR_SPRITE, self.LARGEUR_SPRITE))
-
-        tube = pygame.image.load("ressource/tube_plastique.png").convert()
-        tube = pygame.transform.scale(tube, (self.LARGEUR_SPRITE, self.LARGEUR_SPRITE))
-        tube.set_colorkey((255, 255, 255))
-
-        mac_giver = pygame.image.load("ressource/MacGyver.png").convert_alpha()
-        mac_giver = pygame.transform.scale(mac_giver, (self.LARGEUR_SPRITE, self.LARGEUR_SPRITE))
-
-        tiny_tina = pygame.image.load("ressource/Gardien.png").convert_alpha()
-        tiny_tina = pygame.transform.scale(tiny_tina, (self.LARGEUR_SPRITE, self.LARGEUR_SPRITE))
-
-        butin = pygame.image.load("ressource/butin.png").convert_alpha()
-        butin = pygame.transform.scale(butin, (self.LARGEUR_SPRITE, self.LARGEUR_SPRITE))
-
-        diable = pygame.image.load("ressource/diable.png").convert_alpha()
-        diable = pygame.transform.scale(diable, (self.LARGEUR_SPRITE, self.LARGEUR_SPRITE))
 
         font = pygame.font.SysFont("comicsansms", 35)
         #armes = print(hero)
@@ -88,30 +93,29 @@ class Plateau:
                 #print("X"+sprite.attribut+"X")
 
                 if sprite.attribut == 'o':          #m = Mur
-                    self.fenetre.blit(sol, (x, y))
+                    self.fenetre.blit(self.sol, (x, y))
                 if sprite.attribut == 'I':          #m = Mur
-                    self.fenetre.blit(mur, (x, y))
+                    self.fenetre.blit(self.mur, (x, y))
                 if sprite.attribut == '1':        #d = Départ
-                    self.fenetre.blit(sol, (x, y))
-                    self.fenetre.blit(aiguille, (x, y))
+                    self.fenetre.blit(self.sol, (x, y))
+                    self.fenetre.blit(self.aiguille, (x, y))
                 if sprite.attribut == '2':        #a = Arrivée
-                    self.fenetre.blit(sol, (x, y))
-                    self.fenetre.blit(ether, (x, y))
+                    self.fenetre.blit(self.ether, (x, y))
                 if sprite.attribut == '3':
-                    self.fenetre.blit(sol, (x, y))
-                    self.fenetre.blit(tube, (x, y))
+                    self.fenetre.blit(self.sol, (x, y))
+                    self.fenetre.blit(self.tube, (x, y))
                 if sprite.attribut == 'H':
-                    self.fenetre.blit(sol, (x, y))
-                    self.fenetre.blit(mac_giver, (x, y))
+                    self.fenetre.blit(self.sol, (x, y))
+                    self.fenetre.blit(self.mac_giver, (x, y))
                 if sprite.attribut == 'M':
-                    self.fenetre.blit(sol, (x, y))
-                    self.fenetre.blit(tiny_tina, (x, y))
+                    self.fenetre.blit(self.sol, (x, y))
+                    self.fenetre.blit(self.tiny_tina, (x, y))
                 if sprite.attribut == 'B':
-                    self.fenetre.blit(sol, (x, y))
-                    self.fenetre.blit(butin, (x, y))
+                    self.fenetre.blit(self.sol, (x, y))
+                    self.fenetre.blit(self.butin, (x, y))
                 if sprite.attribut == 'd':
-                    self.fenetre.blit(sol, (x, y))
-                    self.fenetre.blit(diable, (x, y))
+                    self.fenetre.blit(self.sol, (x, y))
+                    self.fenetre.blit(self.diable, (x, y))
 
                 num_case += 1
             num_ligne += 1
